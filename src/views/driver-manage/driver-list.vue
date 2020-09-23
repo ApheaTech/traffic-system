@@ -10,7 +10,7 @@
     <el-table
       class="list"
       :data="tableData"
-      border="true"
+      border=true
       style="width: 75%"
       highlight-current-row="true"
       stripe

@@ -10,9 +10,9 @@
     <el-table
       class="list"
       :data="tableData"
-      border="true"
+      border=true
       style="width: 50%"
-      highlight-current-row="true"
+      highlight-current-row=true
     >
       <el-table-column fixed="left" prop="carNumber" label="车牌号" sortable width="150"></el-table-column>
       <el-table-column prop="registerDate" label="录入日期" sortable width="150"></el-table-column>
@@ -209,11 +209,10 @@ export default {
       // 与服务器通信
       this.axios
         // 发送车牌号给后端
-        .get('http://localhost:3000/vehicledetails', {
+        .get('/vehicledetails', {
           params: {
             carNumber: row.carNumber
-          },
-          timeout: 1000
+          }
         })
         // 获取到该车牌号车辆的详情
         .then(response => {

@@ -56,7 +56,7 @@
           <el-table
             class="list"
             :data="tableData"
-            border="true"
+            border=true
             style="margin-top: 0px;width: 100%;"
             highlight-current-row="true"
           >

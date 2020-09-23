@@ -8,7 +8,8 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: () => import('../views/login/login.vue')
+    component: () => import('../views/login/index.vue'),
+    meta: { title: '登陆'}
   },
   {
     path: '/home',
@@ -90,6 +91,12 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  console.log(to);
+  next()
 })
 
 export default router

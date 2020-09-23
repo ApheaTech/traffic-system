@@ -75,18 +75,20 @@ export default {
       this.currentRow = row
       // 显示编辑对话框
       this.editDialogFormVisible = true
-      this.form.editInput = row.carType
+      // this.form.editInput = row.carType
+      this.editInput = row.carType
       this.oldType = row.carType
     },
     // 在修改对话框中的确认
     // 还需添加完成后再从服务器获取tableData
     handleClickEditConfirm (row) {
-      console.log(this.form.editInput)
+      console.log(this.editInput)
+      this.editDialogFormVisible = false
       this.axios
         .get('/updatecartype', {
           params: {
             s1: this.oldType,
-            s2: this.form.editInput
+            s2: this.editInput
           },
           timeout: 1000
         })
@@ -143,6 +145,7 @@ export default {
     },
     // 新增事件
     handleClickAdd () {
+      this.addInput = ''
       this.addDialogFormVisible = true
     },
     // 在新增对话框中的确认

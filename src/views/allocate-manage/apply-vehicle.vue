@@ -9,7 +9,7 @@
     <el-row>
       <el-col :span="24" :offset="0">
        <!-- 表格 -->
-        <el-table class="list" :data="tableData" border="true" style="width: 100%" highlight-current-row="true">
+        <el-table class="list" :data="tableData" border=true style="width: 100%" highlight-current-row=true>
           <el-table-column prop="orderStatus" label="订单状态" width="110" column-key="orderStatus"
           :filters="[
             {text: '待审批', value: '待审批'},

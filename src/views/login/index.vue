@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <el-row class="box">
+  <div class="login-container">
+    <el-row class="box" type="flex" justify="start">
       <el-col :span="5" :offset="9">
-        <el-card shadow="always">
-          <h2>交通安全管理信息系统</h2>
-          <el-form ref="form" :model="loginForm" label-width="40px">
-            <el-form-item label="账号">
+        <el-card shadow="hidden">
+          <h1>交通安全管理信息系统</h1>
+          <el-form ref="form" :model="loginForm">
+            <el-form-item>
               <el-input v-model="loginForm.userName" prefix-icon="el-icon-user-solid" placeholder="请输入账号">账号</el-input>
             </el-form-item>
-            <el-form-item label="密码">
+            <el-form-item>
               <el-input v-model="loginForm.password" prefix-icon="el-icon-lock" show-password placeholder="请输入密码"></el-input>
             </el-form-item>
             <el-form-item>
               <div class="formBtn">
                 <el-row style="margin-top: 0px">
-                  <el-col :span="14" :offset="5">
+                  <el-col :span="10" :offset="7">
                     <el-button type="primary" @click="loginOn">登陆</el-button>
                     <el-button @click="register">注册</el-button>
                   </el-col>
@@ -45,22 +45,9 @@ export default {
   methods: {
     loginOn () {
       this.Global.setUserName(this.loginForm.userName)
-      // this.$router.push({ name: 'home' })
-      // this.axios
-      //   .get('/', {
-      //     params: {
-      //       id: '123',
-      //       pwd: '123'
-      //     }
-      //   })
-      //   .then(response => console.log(response))
-      //   .catch(err => console.log(err))
-
       // 与服务器通信
       this.axios
-        // .get('http://localhost:3000/login', {
         .get('/login', {
-          // 超时1s即报错
           timeout: 1000,
           params: {
             id: this.loginForm.userName,
@@ -108,19 +95,34 @@ export default {
 </script>
 
 <style scoped>
-.el-row {
-  margin-top: 200px;
+body {
+  /* height: 100%; */
+}
+.login-container {
+  background-color: #2d3a4b;
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+.login-container > .el-row {
+  height: 100%;
+  padding-top: 300px;
   &:last-child {
     margin-bottom: 0;
   }
 }
 .el-card {
-  background: #e7e7e9;
-  border-radius: 20px;
+  background-color: #2d3a4b;
+  border: 0px;
 }
-h2 {
+.el-form-item {
+  color: #fff;
+}
+h1 {
+  color: #eeeee9;
   font-family: "微软雅黑","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
   text-align: center;
+  margin-bottom: 30px;
 }
 .formBtn {
   margin: 0 auto;

@@ -22,14 +22,11 @@
               <el-aside width="210px">
                 <el-menu
                   default-active="/home/vehicle-list"
-                  :collapse="isCollapse"
                   background-color="#393d49"
                   text-color="#bfcbd9"
-                  :unique-opened="false"
                   active-text-color="#409EFF"
-                  :collapse-transition="false"
                   mode="vertical"
-                  router="true"
+                  router=true
                   @open="handleOpen"
                   @close="handleClose"
                   left
@@ -162,6 +159,18 @@ export default {
         this.$router.push({ name: 'login' })
       })
     },
+    refresh () {
+
+    },
+    handleOpen () {
+
+    },
+    handleClose () {
+
+    },
+    // isCollapse () {
+
+    // },
     // isHome (route) {
     //   return route.name === 'home'
     // },

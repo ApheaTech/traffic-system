@@ -32,7 +32,7 @@
     <el-table
       class="list"
       :data="tableData"
-      border="true"
+      border=true
       style="width: 100%"
       highlight-current-row="true"
     >
